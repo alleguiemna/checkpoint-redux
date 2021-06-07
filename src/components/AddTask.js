@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addTask } from "../js/action/taskAction";
 
-const AddTask = ({filter,handleClickAll,handleClickDone,handleClickNotDone }) => {
+const AddTask = ({handleClickAll,handleClickDone,handleClickNotDone }) => {
   const taskList = useSelector((state) => state.taskReducer.taskList)
   const [text, setText] = useState("");
  
@@ -27,17 +27,9 @@ const AddTask = ({filter,handleClickAll,handleClickDone,handleClickNotDone }) =>
         <button onClick={add}>Add Task</button>
       </div>
       <div>
-        {
-        (filter === "all" ) ? taskList
-        (<button onClick={handleClickAll}>All</button>) :
-        
-        (filter === "done") ? ( taskList.filter((todo) => todo.isDone))
-        (<button onClick={handleClickDone}>Done</button>) :
-        
-        (filter === "notDone") ? ( taskList.filter((todo) => !todo.isDone)) 
-        (<button onClick={handleClickNotDone}>Not Done</button>)
-        : null
-        }
+        <button onClick={handleClickAll}>All</button>) 
+        <button onClick={handleClickDone}>Done</button>)
+        <button onClick={handleClickNotDone}>Not Done</button>
       </div>
     </div>
   );

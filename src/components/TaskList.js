@@ -2,13 +2,14 @@ import React from 'react'
 
 import TaskItem from './TaskItem'
 
-const TaskList = ({taskList}) => {
+const TaskList = ({taskList ,filter}) => {
   
     return (
         <div>
-            {
-                taskList.map(todo => <TaskItem todo={todo} key={todo.id}
-                />)
+           { 
+                 filter === "done" ? taskList.filter(el=> el.isDone).map(todo=>   <TaskItem todo={todo} key={todo.id} />)
+                 : filter==="notDone" ? taskList.filter(el=> !el.isDone).map(todo=>   <TaskItem todo={todo} key={todo.id} />)
+                  : taskList.map(todo => <TaskItem todo={todo} key={todo.id} />    )
             }
         </div>
     )

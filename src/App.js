@@ -21,12 +21,11 @@ function App() {
     <div className="App">
       <h1>Todo App</h1>
       <AddTask
-        filter={filter}
         handleClickAll={handleClickAll}
         handleClickDone={handleClickDone}
         handleClickNotDone={handleClickNotDone}
       />
-      <TaskList taskList={taskList} />
+      <TaskList filter={filter} taskList={taskList} />
     </div>
   );
 }
